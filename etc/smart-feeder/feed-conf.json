@@ -1,0 +1,9 @@
+{
+  "feedList": [
+    {"id": "feedm2", "name": "메기2호", "gram": 50},
+    {"id": "feedm3", "name": "메기3호", "gram": 50},
+    {"id": "feedm4", "name": "메기4호", "gram": 50},
+    {"id": "feedb2", "name": "뱀장어2호", "gram": 50},
+    {"id": "feedb1", "name": "뱀장어1호", "gram": 50}
+  ]
+}

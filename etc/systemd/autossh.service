@@ -1,0 +1,14 @@
+[Unit]
+Description=Autossh connection to tunnel@aquafarmdb.koast.tech:{SSH_PORT}
+After=network-online.target ssh.service
+StartLimitBurst=0
+
+[Service]
+User=edge
+ExecStart=/usr/bin/autossh -N -o ExitOnForwardFailure=yes -o PubkeyAuthentication=yes -o PasswordAuthentication=no -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -o StrictHostKeyChecking=no -i /home/edge/.ssh/smart -R {SSH_PORT}:localhost:22 tunnel@aquafarmdb.koast.tech
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+

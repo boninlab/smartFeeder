@@ -1,0 +1,7 @@
+{
+  "modbusTimeout": 0.03,
+  "inverterSlaveID": 54,
+  "inverterFrequency": 24.0,
+  "runTimeSec": 300,
+  "reverseOn": true
+}

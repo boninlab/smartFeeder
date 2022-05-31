@@ -1,0 +1,6 @@
+{
+  "modbusTimeout": 0.03,
+  "inverterSlaveID": 52,
+  "inverterFrequency": 60.0,
+  "runTimeSec": 300
+}

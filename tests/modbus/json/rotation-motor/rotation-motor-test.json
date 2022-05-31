@@ -1,0 +1,12 @@
+{
+  "modbusTimeout": 0.03,
+  "motorSlaveID": 50,
+  "proxiSensorSlaveID": 10,
+  "proxiSensorSlot": 3,
+  "proxiSensorChannel": 15,
+  "motorFrequency": 25.0,
+  "totalHitCount": 4,
+  "hitReverse": true,
+  "totalRunLimitSec": 60,
+  "centerWaitSce": 0.08
+}

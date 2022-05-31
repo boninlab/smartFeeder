@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA Compatible" control="IE=edge,chrome=1" />
+    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+    var timerID;
+    $(document).ready(function () {
+        $('#execute').on('click',function(e){
+            e.preventDefault();
+            updateData();
+        });
+        $('#stop').on('click',function(e){
+            e.preventDefault();
+            clearTimeout(timerID);
+            $('#showlog').html('');
+        });
+    });
+
+    function updateData(){
+      var offsetid = $('#offset_id').val();
+      var loglimit = $('#log_limit').val();
+      $.ajax({
+        url: "http://192.168.3.121:3030/getlog",
+        type:"get",
+        datatype : "json",
+        data: {
+          offset_id: offsetid,
+          log_limit: loglimit
+        },
+        success: function(data){
+          const logJs = JSON.parse(JSON.stringify(data));
+          $('#showlog').html(logJs.logs);
+          $('#offsetId').html(logJs.offsetId);
+        }
+      });
+      timerID = setTimeout("updateData()", 5000);
+    }
+    </script>
+    </head>
+    <body>
+    offsetID: <input type="text" id="offset_id" style="width:300px;"></br>
+    logLimit: <input type="text" id="log_limit" value="1000" /></br>
+    <input type="button" id="execute" value="start" />
+    <input type="button" id="stop" value="stop" />
+    <p><textarea id="offsetId" style="font-family: Arial;font-size: 10pt;width:300px;"></textarea></p>
+    <p><textarea id="showlog" style="font-family: Arial;font-size: 10pt;width:100%;height:100vw"></textarea></p>
+    </body>
+    </html>
